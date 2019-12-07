@@ -1,5 +1,5 @@
 {
-    "name": "devcapu/nuticionist-calcullator",
+    "name": "devcapu/nuticionist-calculator",
     "description": "Calculadora de Gasto energético total e basal para nutricionistas",
     "type": "library",
     "authors": [
@@ -8,5 +8,10 @@
             "email": "cyberlegend48@gmail.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "DevCapu\\Nutrilive\\": "src/"
+        }
+    }
 }
