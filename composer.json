@@ -1,0 +1,12 @@
+{
+    "name": "devcapu/nuticionist-calcullator",
+    "description": "Calculadora de Gasto energético total e basal para nutricionistas",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Felipe Moreno Borges",
+            "email": "cyberlegend48@gmail.com"
+        }
+    ],
+    "require": {}
+}
