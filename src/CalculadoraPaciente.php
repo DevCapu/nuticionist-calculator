@@ -20,7 +20,8 @@ class CalculadoraPaciente
         $pesoPaciente,
         $alturaPaciente,
         $idadePaciente
-    ): float {
+    ): float
+    {
         if ($sexoBiologico === "MASCULINO") {
             $gastoEnergeticoBasal = 66.5 + (13.8 * $pesoPaciente) + (5.0 * $alturaPaciente) - (6.8 * $idadePaciente);
             return $gastoEnergeticoBasal;
