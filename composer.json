@@ -1,6 +1,6 @@
 {
   "name": "devcapu/nuticionist-calculator",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Calculadora de Gasto energético total e basal para nutricionistas",
   "type": "library",
   "license": "MIT",
