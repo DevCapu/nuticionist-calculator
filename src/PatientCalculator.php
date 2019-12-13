@@ -16,6 +16,10 @@ class PatientCalculator
 {
     public static function calculateBMI(float $weight, float $height, bool $rounded = true): float
     {
+        if ($weight <= 0 || $height < 0) {
+            throw new \InvalidArgumentException("Weight or Height cannot be a negative number");
+        }
+
         $imc = $weight / pow($height, 2);
         return $rounded ? round($imc, 2) : $imc;
     }
