@@ -58,7 +58,9 @@ class PatientCalculator
         ];
 
         $namespace = $listActivityCoefficients[$activityCoefficients];
-        /** @var ActivityFactor $class */
+        /**
+ * @var ActivityFactor $class 
+*/
         $class = new $namespace();
         return $class->calculateTotalEnergyExpenditure($basalEnergyExpenditure);
     }
@@ -72,7 +74,9 @@ class PatientCalculator
         ];
 
         $namespace = $listObjectives[$objective];
-        /** @var Objective $class */
+        /**
+ * @var Objective $class 
+*/
         $class = new $namespace();
         return $class->calculateCaloriesToBeIngestedToCommitObjective($totalEnergyExpenditure);
     }

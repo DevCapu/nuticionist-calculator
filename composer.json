@@ -27,7 +27,7 @@
     "phan/phan": "^2.2"
   },
   "scripts": {
-    "test": "phpunit tests\\TesteBuscadorDeCursos.php",
+    "test": "vendor/bin/phpunit tests --colors --testdox",
     "cs": "./vendor/bin/phpcs --standard=PSR12 src/",
     "corrige": "./vendor/bin/phpcbf src/",
     "check": [
