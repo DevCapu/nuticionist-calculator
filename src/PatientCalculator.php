@@ -1,16 +1,16 @@
 <?php
 
-namespace DevCapu\NutriLive;
+namespace DevCapu\NutriLive\App;
 
-use DevCapu\NutriLive\Model\PatientStrategies\Active;
-use DevCapu\NutriLive\Model\PatientStrategies\ActivityFactor;
-use DevCapu\NutriLive\Model\PatientStrategies\Define;
-use DevCapu\NutriLive\Model\PatientStrategies\Gain;
-use DevCapu\NutriLive\Model\PatientStrategies\LittleActive;
-use DevCapu\NutriLive\Model\PatientStrategies\Lose;
-use DevCapu\NutriLive\Model\PatientStrategies\Objective;
-use DevCapu\NutriLive\Model\PatientStrategies\Sedentary;
-use DevCapu\NutriLive\Model\PatientStrategies\VeryActive;
+use DevCapu\NutriLive\App\Model\PatientStrategies\Active;
+use DevCapu\NutriLive\App\Model\PatientStrategies\ActivityFactor;
+use DevCapu\NutriLive\App\Model\PatientStrategies\Define;
+use DevCapu\NutriLive\App\Model\PatientStrategies\Gain;
+use DevCapu\NutriLive\App\Model\PatientStrategies\LittleActive;
+use DevCapu\NutriLive\App\Model\PatientStrategies\Lose;
+use DevCapu\NutriLive\App\Model\PatientStrategies\Objective;
+use DevCapu\NutriLive\App\Model\PatientStrategies\Sedentary;
+use DevCapu\NutriLive\App\Model\PatientStrategies\VeryActive;
 
 class PatientCalculator
 {
@@ -24,8 +24,8 @@ class PatientCalculator
     {
         try {
             $date = new \DateTime($birthday);
-            $interval = $date->diff(new DateTime(date('Y - m - d')));
-            return $interval->format(' % Y');
+            $interval = $date->diff(new \DateTime(date('Y-m-d')));
+            return (int)$interval->format('%Y');
         } catch (\Exception $exception) {
             print_r($exception->getMessage());
         }

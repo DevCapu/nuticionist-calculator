@@ -1,6 +1,6 @@
 <?php
 
-namespace DevCapu\NutriLive\Model\PatientStrategies;
+namespace DevCapu\NutriLive\App\Model\PatientStrategies;
 
 class Sedentary implements ActivityFactor
 {

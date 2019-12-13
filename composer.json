@@ -17,7 +17,8 @@
   },
   "autoload": {
     "psr-4": {
-      "DevCapu\\NutriLive\\": "src/"
+      "DevCapu\\NutriLive\\App\\": "src/",
+      "DevCapu\\NutriLive\\Tests\\": "tests/"
     }
   },
   "require-dev": {
