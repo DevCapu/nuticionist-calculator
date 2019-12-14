@@ -26,6 +26,9 @@ class PatientCalculator
 
     public static function calculateAge(string $birthday): int
     {
+        if (strpos($birthday, '/') !== false) {
+            throw new \InvalidArgumentException("Birthday format should be: yyyy-MM-dd");
+        }
         try {
             $date = new \DateTime($birthday);
             $interval = $date->diff(new \DateTime(date('Y-m-d')));
@@ -33,6 +36,7 @@ class PatientCalculator
         } catch (\Exception $exception) {
             print_r($exception->getMessage());
         }
+        return 0;
     }
 
     public static function calculateBasalEnergyExpenditure(string $gender, float $weight, float $height, string $birthday): float
@@ -59,8 +63,8 @@ class PatientCalculator
 
         $namespace = $listActivityCoefficients[$activityCoefficients];
         /**
- * @var ActivityFactor $class 
-*/
+         * @var ActivityFactor $class
+         */
         $class = new $namespace();
         return $class->calculateTotalEnergyExpenditure($basalEnergyExpenditure);
     }
@@ -75,8 +79,8 @@ class PatientCalculator
 
         $namespace = $listObjectives[$objective];
         /**
- * @var Objective $class 
-*/
+         * @var Objective $class
+         */
         $class = new $namespace();
         return $class->calculateCaloriesToBeIngestedToCommitObjective($totalEnergyExpenditure);
     }

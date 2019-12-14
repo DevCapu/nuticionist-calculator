@@ -23,12 +23,40 @@ class PatientCalculatorTest extends TestCase
         }
     }
 
-    public function generateWeightAndHeight()
+    /**
+     * @dataProvider generateBirthdays
+     * @param string $birthday
+     */
+    public function testShouldCalculateAge(string $birthday)
+    {
+        if (strpos($birthday, "/") !== false) {
+            $this->expectException(\InvalidArgumentException::class);
+            PatientCalculator::calculateAge($birthday);
+        } elseif ($birthday === '3000-12-31') {
+            $age = PatientCalculator::calculateAge($birthday);
+            self::assertEquals(981, $age);
+        } else {
+            $age = PatientCalculator::calculateAge($birthday);
+            self::assertEquals(19, $age);
+        }
+    }
+
+    /*DATA PROVIDERS*/
+    public function generateWeightAndHeight(): array
     {
         return [
             'Positive-weight-and-height' => [78, 1.78],
             'Negative-weight-and-height' => [-78, 1.78],
             'Positive-weight-and-positive-height' => [78, -1.78],
+        ];
+    }
+
+    public function generateBirthdays(): array
+    {
+        return [
+            'Right-date' => ['2000-10-15'],
+            'Wrong-format' => ['15/10/2000'],
+            'Future-date' => ['3000-12-31'],
         ];
     }
 }
