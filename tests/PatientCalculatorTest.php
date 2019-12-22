@@ -41,6 +41,12 @@ class PatientCalculatorTest extends TestCase
         }
     }
 
+    public function testCalculateBasalEnergyExpenditureShouldNotAcceptNegativeInformation()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        PatientCalculator::calculateBasalEnergyExpenditure("male", 78, -1.78, "2000-10-15");
+    }
+
     /*DATA PROVIDERS*/
     public function generateWeightAndHeight(): array
     {

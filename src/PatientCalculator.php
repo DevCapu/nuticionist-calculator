@@ -39,16 +39,34 @@ class PatientCalculator
         return 0;
     }
 
-    public static function calculateBasalEnergyExpenditure(string $gender, float $weight, float $height, string $birthday): float
-    {
+    /**
+     * @param string $gender
+     * @param float $weight
+     * @param float $height
+     * @param string $birthday
+     * @return float
+     */
+    public static function calculateBasalEnergyExpenditure(
+        string $gender,
+        float $weight,
+        float $height,
+        string $birthday
+    ): float {
+
+        if ($gender !== "male" && $gender !== "female") {
+            throw new \InvalidArgumentException('$gender argument must be: \'male\' or \'female\'');
+        } elseif ($weight <= 0) {
+            throw new \InvalidArgumentException('$weight argument must be <= 0');
+        } elseif ($height <= 0) {
+            throw new \InvalidArgumentException('$height argument must be <= 0');
+        }
         $age = PatientCalculator::calculateAge($birthday);
         if ($gender === "male") {
             $basalEnergyExpenditure = 66.5 + (13.8 * $weight) + (5.0 * $height) - (6.8 * $age);
         } elseif ($gender === "female") {
             $basalEnergyExpenditure = 655 + (9.6 * $weight) + (1.8 * $height) - (4.7 * $age);
-        } else {
-            throw new \InvalidArgumentException('$birthday argument must be: \'male\' or \'female\'');
         }
+
         return $basalEnergyExpenditure;
     }
 
